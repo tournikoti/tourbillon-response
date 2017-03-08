@@ -4,33 +4,33 @@ namespace Tourbillon\Response;
 
 abstract class View
 {
-    protected $sFile;
-    protected $aVar;
+    protected $filepath;
+    protected $vars;
 
-    public function __construct($sFile, $aVar = array())
+    public function __construct($filepath, $vars = array())
     {
-        $this->setFile($sFile);
-        $this->setVars($aVar);
+        $this->setFilepath($filepath);
+        $this->setVars($vars);
     }
 
-    public function getFile()
+    public function getFilepath()
     {
-        return $this->sFile;
+        return $this->filepath;
     }
 
-    public function getVar()
+    public function getVars()
     {
-        return $this->aVar;
+        return $this->vars;
     }
 
-    public function setFile($sFile)
+    public function setFilepath($filepath)
     {
-        $this->sFile = $sFile;
+        $this->filepath = $filepath;
     }
 
-    public function setVars(array $aVar)
+    public function setVars(array $vars)
     {
-        $this->aVar = $aVar;
+        $this->vars = $vars;
     }
 
     public abstract function render();
