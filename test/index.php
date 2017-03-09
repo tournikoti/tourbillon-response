@@ -5,10 +5,12 @@ use Tourbillon\Response\ViewFactory;
 
 require '../vendor/autoload.php';
 
-$view = ViewFactory::createInstance(__DIR__ . '/views/index.php', [
+$params = [
     'variable1' => 'test',
     'variable2' => 'toto'
-]);
+];
+
+$view = ViewFactory::createInstance(__DIR__ . '/views/index.tpl', $params, Tourbillon\Response\View\Dwoo::class);
 
 $httpResponse = new HttpResponse();
 

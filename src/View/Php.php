@@ -3,7 +3,6 @@
 namespace Tourbillon\Response\View;
 
 use Tourbillon\Response\View;
-use Exception;
 
 /**
  * Description of Html

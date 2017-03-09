@@ -17,14 +17,16 @@ class ViewFactory
      * @return View
      * @throws Exception
      */
-    public static function createInstance($path, array $params = array(), $tpl = null)
+    public static function createInstance($path, array $params = array(), $class = null)
     {
-        $class = __NAMESPACE__ . '\\View\\' . ucfirst(strtolower(null !== $tpl ? $tpl : pathinfo($path, PATHINFO_EXTENSION)));
+        $c = null === $class
+            ? __NAMESPACE__ . '\\View\\' . ucfirst(strtolower(pathinfo($path, PATHINFO_EXTENSION)))
+            : $class;
 
-        if (!class_exists($class)) {
-            throw new Exception("Configurator $class does not exist");
+        if (!class_exists($c)) {
+            throw new Exception("Configurator $c does not exist");
         }
 
-        return new $class($path, $params);
+        return new $c($path, $params);
     }
 }
