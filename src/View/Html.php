@@ -18,7 +18,7 @@ class Html extends View
         ob_start(array(&$this, 'flush'));
         include $this->getFilepath();
         ob_end_flush();
-        return ob_get_clean();
+        print ob_get_clean();
     }
 
     public function flush($buffer)

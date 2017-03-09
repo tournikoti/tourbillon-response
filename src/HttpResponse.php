@@ -39,7 +39,7 @@ class HttpResponse {
     }
 
     public function render() {
-        echo $this->view->render();
+        $this->view->render();
     }
 
     public function setView(View $view) {
