@@ -17,9 +17,9 @@ class ViewFactory
      * @return View
      * @throws Exception
      */
-    public static function createInstance($path, array $params = array())
+    public static function createInstance($path, array $params = array(), $tpl = null)
     {
-        $class = __NAMESPACE__ . '\\View\\' . ucfirst(strtolower(pathinfo($path, PATHINFO_EXTENSION)));
+        $class = __NAMESPACE__ . '\\View\\' . ucfirst(strtolower(null !== $tpl ? $tpl : pathinfo($path, PATHINFO_EXTENSION)));
 
         if (!class_exists($class)) {
             throw new Exception("Configurator $class does not exist");
