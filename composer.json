@@ -10,7 +10,8 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "php": ">=5.3.3"
+        "php": ">=5.3.3",
+        "dwoo/dwoo": "1.2.*"
     },
     "autoload": {
         "psr-4": {
