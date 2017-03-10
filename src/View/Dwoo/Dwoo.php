@@ -1,6 +1,6 @@
 <?php
 
-namespace Tourbillon\Response\View;
+namespace Tourbillon\Response\View\Dwoo;
 
 use Dwoo_Core;
 use Dwoo_Data;

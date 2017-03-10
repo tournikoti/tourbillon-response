@@ -1,6 +1,7 @@
 <?php
 
 use Tourbillon\Response\HttpResponse;
+use Tourbillon\Response\View\Dwoo;
 use Tourbillon\Response\ViewFactory;
 
 require '../vendor/autoload.php';
@@ -10,7 +11,9 @@ $params = [
     'variable2' => 'toto'
 ];
 
-$view = ViewFactory::createInstance(__DIR__ . '/views/index.tpl', $params, Tourbillon\Response\View\Dwoo::class);
+$factory = new ViewFactory();
+
+$view = $factory->create(__DIR__ . '/views/index.tpl', $params, Dwoo::class);
 
 $httpResponse = new HttpResponse();
 

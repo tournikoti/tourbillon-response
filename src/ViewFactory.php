@@ -11,17 +11,21 @@ use Exception;
  */
 class ViewFactory
 {
+
+    public function __construct()
+    {
+        
+    }
+
     /**
      *
      * @param type $path
      * @return View
      * @throws Exception
      */
-    public static function create($path, array $params = array(), $class = null)
+    public function create($path, array $params = array(), $class = null)
     {
-        $c = null === $class
-            ? __NAMESPACE__ . '\\View\\' . ucfirst(strtolower(pathinfo($path, PATHINFO_EXTENSION)))
-            : $class;
+        $c = null === $class ? __NAMESPACE__.'\\View\\'.ucfirst(strtolower(pathinfo($path, PATHINFO_EXTENSION))) : $class;
 
         if (!class_exists($c)) {
             throw new Exception("Configurator $c does not exist");
@@ -29,4 +33,5 @@ class ViewFactory
 
         return new $c($path, $params);
     }
+
 }
