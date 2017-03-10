@@ -17,7 +17,7 @@ class ViewFactory
      * @return View
      * @throws Exception
      */
-    public static function createInstance($path, array $params = array(), $class = null)
+    public static function create($path, array $params = array(), $class = null)
     {
         $c = null === $class
             ? __NAMESPACE__ . '\\View\\' . ucfirst(strtolower(pathinfo($path, PATHINFO_EXTENSION)))
