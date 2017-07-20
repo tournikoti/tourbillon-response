@@ -28,7 +28,7 @@ class ViewFactory
         $c = null === $class ? __NAMESPACE__.'\\View\\'.ucfirst(strtolower(pathinfo($path, PATHINFO_EXTENSION))) : $class;
 
         if (!class_exists($c)) {
-            throw new Exception("Configurator $c does not exist");
+            throw new Exception("Configurator \"$c\" does not exist");
         }
 
         return new $c($path, $params);
