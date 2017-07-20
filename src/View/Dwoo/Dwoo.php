@@ -2,10 +2,11 @@
 
 namespace Tourbillon\Response\View\Dwoo;
 
+use Closure;
 use Dwoo\Core;
+use Dwoo\Data;
 use Dwoo\Template\File;
 use Tourbillon\Response\View;
-use Dwoo\Data;
 
 /**
  * Description of Dwoo
@@ -35,6 +36,14 @@ class Dwoo extends View
             $data->assign($key, $value);
         }
         return $data;
+    }
+
+    public function addFilter(Closure $callback) {
+        $this->dwoo->addFilter($callback);
+    }
+
+    public function addPlugin($name, Closure $callback) {
+        $this->dwoo->addPlugin($name, $callback);
     }
 
 }

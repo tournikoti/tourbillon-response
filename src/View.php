@@ -2,6 +2,8 @@
 
 namespace Tourbillon\Response;
 
+use Closure;
+
 abstract class View
 {
     protected $filepath;
@@ -32,6 +34,10 @@ abstract class View
     {
         $this->vars = $vars;
     }
+
+    public abstract function addPlugin($name, Closure $callback);
+
+    public abstract function addFilter(Closure $callback);
 
     public abstract function render();
 
