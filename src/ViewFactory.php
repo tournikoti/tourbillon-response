@@ -12,9 +12,15 @@ use Exception;
 class ViewFactory
 {
 
+    /**
+     *
+     * @var CustomFactory[]
+     */
+    private $customFactories;
+    
     public function __construct()
     {
-        
+        $this->customFactories = array();
     }
 
     /**
@@ -30,8 +36,24 @@ class ViewFactory
         if (!class_exists($c)) {
             throw new Exception("Configurator \"$c\" does not exist");
         }
-
-        return new $c($path, $params);
+        
+        return $this->createInstance($c, $path, $params);
     }
 
+    private function createInstance($c, $path, array $params = array()) {
+        if ($this->hasCustomFactory($c)) {
+            $this->customFactories[$c] = $this->createCustomFactory($c, $path);
+            return $this->customFactories[$c]->createInstance($c, $path, $params);
+        }
+        return new $c($path, $params);
+    }
+    
+    private function createCustomFactory($class, $path) {
+        $customFactoryClass = $class . 'Factory';
+        return new $customFactoryClass($class, $path);
+    }
+    
+    private function hasCustomFactory($class) {
+        return class_exists($class . 'Factory');
+    }
 }

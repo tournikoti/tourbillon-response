@@ -2,23 +2,26 @@
 
 namespace Tourbillon\Response\View\Dwoo;
 
+use Dwoo\Core;
+use Tourbillon\Response\CustomFactory;
+
 /**
  * Description of Dwoo
  *
  * @author gjean
  */
-class DwooFactory
+class DwooFactory implements CustomFactory
 {
     private $dwoo;
 
     public function __construct($filepath, $vars = array())
     {
-        parent::__construct($filepath, $vars);
-        $this->dwoo = new Dwoo_Core();
+        $this->dwoo = new Core();
     }
 
-    public function create()
+    public function createInstance($c, $path, array $params = array())
     {
-
+        dump($this->dwoo->get($path)); exit;
+        return new $c($path, $params);
     }
 }
