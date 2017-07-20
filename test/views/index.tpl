@@ -1,5 +1,6 @@
-{extends "base.html"}
+{extends "layout.tpl"}
 
 {block "content"}
-    Welcome to my amazing homepage
+    {title("Tourbillon Response")}
+    Welcome to my amazing homepage 
 {/block}
