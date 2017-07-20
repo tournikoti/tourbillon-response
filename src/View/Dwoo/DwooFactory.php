@@ -3,14 +3,14 @@
 namespace Tourbillon\Response\View\Dwoo;
 
 use Dwoo\Core;
-use Tourbillon\Response\CustomFactory;
+use Tourbillon\Response\ViewFactory;
 
 /**
  * Description of Dwoo
  *
  * @author gjean
  */
-class DwooFactory implements CustomFactory
+class DwooFactory extends ViewFactory
 {
     private $dwoo;
 
@@ -21,7 +21,6 @@ class DwooFactory implements CustomFactory
 
     public function createInstance($c, $path, array $params = array())
     {
-        dump($this->dwoo->get($path)); exit;
         return new $c($path, $params);
     }
 }

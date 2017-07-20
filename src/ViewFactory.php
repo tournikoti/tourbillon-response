@@ -43,7 +43,6 @@ class ViewFactory
     private function createInstance($c, $path, array $params = array()) {
         if ($this->hasCustomFactory($c)) {
             $this->customFactories[$c] = $this->createCustomFactory($c, $path);
-            return $this->customFactories[$c]->createInstance($c, $path, $params);
         }
         return new $c($path, $params);
     }
