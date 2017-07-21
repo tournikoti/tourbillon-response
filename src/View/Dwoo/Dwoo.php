@@ -46,4 +46,8 @@ class Dwoo extends View
         $this->dwoo->addPlugin($name, $callback);
     }
 
+    public function getNameType() {
+        return "Dwoo";
+    }
+
 }

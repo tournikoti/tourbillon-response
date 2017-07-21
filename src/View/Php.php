@@ -28,4 +28,8 @@ class Php extends View {
         
     }
 
+    public function getNameType() {
+        return "Php";
+    }
+
 }

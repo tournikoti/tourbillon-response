@@ -39,6 +39,8 @@ abstract class View
 
     public abstract function addFilter(Closure $callback);
 
+    public abstract function getNameType();
+    
     public abstract function render();
 
 }
