@@ -23,6 +23,10 @@ class Dwoo extends View
         $this->dwoo = new Core();
     }
 
+    public function setConfig(array $data = array()) {
+        $this->dwoo->setCompileDir($data['compile_path']);
+    }
+    
     public function render()
     {
         $tpl = new File($this->getFilepath());

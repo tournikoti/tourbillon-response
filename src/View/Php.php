@@ -12,6 +12,10 @@ use Tourbillon\Response\View;
  */
 class Php extends View {
 
+    public function setConfig(array $data = array()) {
+        
+    }
+    
     public function render() {
         ob_start();
         extract($this->vars);

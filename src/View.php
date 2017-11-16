@@ -35,6 +35,8 @@ abstract class View
         $this->vars = $vars;
     }
 
+    public abstract function setConfig(array $data = array());
+    
     public abstract function addPlugin($name, Closure $callback);
 
     public abstract function addFilter(Closure $callback);
