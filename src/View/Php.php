@@ -4,6 +4,7 @@ namespace Tourbillon\Response\View;
 
 use Closure;
 use Tourbillon\Response\View;
+use Tourbillon\Response\View\ExtensionInterface;
 
 /**
  * Description of Html
@@ -13,9 +14,9 @@ use Tourbillon\Response\View;
 class Php extends View {
 
     public function setConfig(array $data = array()) {
-        
+
     }
-    
+
     public function render() {
         ob_start();
         extract($this->vars);
@@ -24,12 +25,8 @@ class Php extends View {
         print ob_get_clean();
     }
 
-    public function addFilter(Closure $callback) {
-        
-    }
+    public function addPlugin(ExtensionInterface $plugin) {
 
-    public function addPlugin($name, Closure $callback) {
-        
     }
 
     public function getNameType() {

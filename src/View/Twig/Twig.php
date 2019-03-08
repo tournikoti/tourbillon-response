@@ -4,6 +4,7 @@ namespace Tourbillon\Response\View\Twig;
 
 use Closure;
 use Tourbillon\Response\View;
+use Tourbillon\Response\View\ExtensionInterface;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
@@ -25,14 +26,9 @@ class Twig extends View {
         ]);
     }
 
-    public function addPlugin($name, Closure $callback)
+    public function addPlugin(ExtensionInterface $plugin)
     {
-        dump(__METHOD__);
-    }
-
-    public function addFilter(Closure $callback)
-    {
-        dump(__METHOD__);
+        $this->twig->addExtension($plugin);
     }
 
     public function getNameType()

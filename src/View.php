@@ -3,6 +3,7 @@
 namespace Tourbillon\Response;
 
 use Closure;
+use Tourbillon\Response\View\ExtensionInterface;
 
 abstract class View
 {
@@ -56,9 +57,7 @@ abstract class View
 
     public abstract function setConfig(array $data = array());
     
-    public abstract function addPlugin($name, Closure $callback);
-
-    public abstract function addFilter(Closure $callback);
+    public abstract function addPlugin(ExtensionInterface $plugin);
 
     public abstract function getNameType();
     
