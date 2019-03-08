@@ -6,18 +6,22 @@ use Closure;
 
 abstract class View
 {
-    protected $filepath;
+    protected $templateDirectory;
+
+    protected $path;
+
     protected $vars;
 
-    public function __construct($filepath, $vars = array())
+    public function __construct($directory, $path, $vars = array())
     {
-        $this->setFilepath($filepath);
+        $this->setTemplateDirectory($directory);
+        $this->setPath($path);
         $this->setVars($vars);
     }
 
-    public function getFilepath()
+    public function getPath()
     {
-        return $this->filepath;
+        return $this->path;
     }
 
     public function getVars()
@@ -25,14 +29,29 @@ abstract class View
         return $this->vars;
     }
 
-    public function setFilepath($filepath)
+    public function getTemplateDirectory()
     {
-        $this->filepath = $filepath;
+        return $this->templateDirectory;
+    }
+
+    public function setPath($path)
+    {
+        $this->path = $path;
     }
 
     public function setVars(array $vars)
     {
         $this->vars = $vars;
+    }
+
+    public function setTemplateDirectory($directory)
+    {
+        $this->templateDirectory = $directory;
+    }
+
+    public function getFilePath()
+    {
+        return $this->templateDirectory . '/' . rtrim($this->path);
     }
 
     public abstract function setConfig(array $data = array());
